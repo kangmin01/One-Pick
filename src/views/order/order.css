@@ -1,0 +1,161 @@
+/*메인*/
+.main {
+  width: 1500px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+}
+
+/*주문 헤더*/
+.order-header {
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 32px; 
+  padding-bottom: 16px;
+  height: 50px;
+}
+.order-header .first-title {
+  margin: 40px 0 0 16px;
+  cursor: pointer;
+}
+.order-header .second-title {
+  padding: 0 16px 0 16px;
+  font-size: 40px;
+  color: #363636;
+  font-weight: 600;
+  line-height: 1.125;
+}
+.order-header p {
+  margin: 10px 0 10px 0;
+}
+
+/*배송지 정보*/
+.cart-products {
+  height: 100%;
+  flex: none;
+  width: 60%;
+}
+.delivery-info {
+  width: 100%;
+}
+  
+.delivery-info .subtitle {
+  padding-left: 6.4px;
+}
+
+/*성함*/
+.delivery-info .field-label {
+  flex-basis: 112px;
+  flex-grow: 0;
+  text-align: left;
+  height: 48px;
+  line-height: 32px;
+  padding-left: 8px;
+}
+.delivery-info .field-body,
+.delivery-info .select {
+  flex-basis: 560px;
+  flex-grow: 0;
+  height: 48px;
+}
+.select select {
+  width: 100%;
+  height: 100%;
+  color: rgba(0, 0, 0, 0.3);
+}
+.select .select-option {
+  font-size: 1.1rem;
+  color: black;
+}
+.delivery-info .button {
+  height: 3rem;
+}
+.delivery-info .field-body .control,
+.delivery-info .field-body .input {
+  height: 100%;
+}
+.delivery-info .custom-request {
+  display: none;
+}
+
+.tile-order-summary {
+  height: 100%;
+  position: sticky;
+  top: 0.5rem;
+}
+
+.order-summary {
+  background-color: #f0f5f7;
+  width: 100%;
+}
+  
+.order-summary .header {
+  border-bottom: #555 solid 1px;
+  font-size: 1.4rem;
+}
+
+.order-info {
+  border-bottom: #555 solid 1px;
+}
+.order-info .info {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+}
+
+.order-info .info:first-child {
+  margin-top: 1.2rem;
+}
+
+.order-info .info:last-child {
+  margin-bottom: 1.2rem;
+}
+
+.order-info .info p {
+  display: block;
+  max-width: 70%;
+}
+
+.order-info .products-title {
+  text-align: right;
+}
+
+.total {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.total P {
+  display: block;
+}
+
+.total .total-label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.total .total-price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+  
+.purchase {
+  margin-top: 3rem;
+  padding: 0.2rem 0;
+}
+  
+.purchase button {
+  font-size: 1.4rem;
+  font-weight: 800;
+  width: 100%;
+  height: 4rem;
+}
