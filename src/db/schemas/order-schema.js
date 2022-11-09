@@ -1,15 +1,6 @@
-import { Schema } from "mongoose";
-//아이디
-//주문날짜
-//총가격
-//주문정보 상품제목 개수
-//스테터스
-//
-//오더네임
-//주소
-//핸드폰번호
+import { mongoose } from "mongoose";
 
-const OrderSchema = new Schema(
+const OrderSchema = new mongoose.Schema(
   {
     orderName: {
       type: String,
@@ -27,6 +18,14 @@ const OrderSchema = new Schema(
       type: String,
       required: false,
     },
+    owner: [
+      {
+        //주문자 오브젝트아이디 저장,
+        type: mongoose.Schema.Types.ObjectId,
+        required: false,
+        ref: "user-schema", //populate
+      },
+    ],
   },
   {
     timestamps: true,

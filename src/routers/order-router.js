@@ -31,24 +31,31 @@ orderRouter.post("/orders/register", async (req, res, next) => {
   }
 });
 
-orderRouter.get("/orderLists", async function (req, res, next) {
-  const orderList = await orderService.getOrders();
-  res.status(200).json(orderList);
+//주문 전체조회
+orderRouter.get("/orders", async function (req, res, next) {
+  try {
+    const orderList = await orderService.getOrders();
+    res.status(200).json({ error: null, data: orderList });
+  } catch (error) {
+    next(error);
+  }
 });
 
-orderRouter.delete("/orders/:orderId", async function (req, res, next) {
-  const orderId = req.params.orderId;
+//주문 삭제
+orderRouter.delete("/orders/:id", async function (req, res, next) {
+  const orderId = req.params.id;
 
   console.log(`파람 값확인: ${orderId}`);
 
   const deleteOrderInfo = await orderService.deleteOrder(orderId);
 
-  return res.status(201).json(deleteOrderInfo);
+  return res.status(200).json({ error: null, data: deleteOrderInfo });
 });
 
-orderRouter.patch("/orders/:orderId", async function (req, res, next) {
+//주문 수정
+orderRouter.patch("/orders/:id", async function (req, res, next) {
   try {
-    const orderId = req.params.orderId;
+    const orderId = req.params.id;
 
     const orderName = req.body.orderName;
     const address = req.body.address;
