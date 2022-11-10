@@ -8,7 +8,11 @@ const summaryInput = $("#summaryInput");
 const publisherInput = $("#publisherInput");
 const publicationDateInput = $("#publicationDateInput");
 
+<<<<<<< HEAD
 const imageFileInput = $("#imageFileInput");
+=======
+const imageInput = $("#imageInput");
+>>>>>>> feature
 const pageNumberInput = $("#pageNumberInput");
 const priceInput = $("#priceInput");
 
@@ -40,7 +44,10 @@ async function handleSubmit(e) {
   const publicationDate = publicationDateInput.value;
   const pageNumber = parseInt(pageNumberInput.value);
   const price = parseInt(priceInput.value);
+<<<<<<< HEAD
   const imageFile = imageFileInput.files?.[0] ?? undefined;
+=======
+>>>>>>> feature
 
   // 입력 칸이 비어 있으면 진행 불가
   if (
@@ -51,12 +58,17 @@ async function handleSubmit(e) {
     !publisher ||
     !publicationDate ||
     !pageNumber ||
+<<<<<<< HEAD
     !price ||
     !imageFile
+=======
+    !price
+>>>>>>> feature
   ) {
     return alert("빈 칸 및 0이 없어야 합니다.");
   }
 
+<<<<<<< HEAD
   const formData = new FormData();
 
   formData.append("title", title);
@@ -71,6 +83,21 @@ async function handleSubmit(e) {
 
   try {
     await Api.postFormData("/api/products", formData);
+=======
+  try {
+    const data = {
+      title,
+      categoryId,
+      author,
+      summary,
+      publisher,
+      publicationDate,
+      pageNumber,
+      price,
+    };
+
+    await Api.post("/api/products", data);
+>>>>>>> feature
 
     alert(`정상적으로 ${title} 제품이 등록되었습니다.`);
 
@@ -86,14 +113,24 @@ async function handleSubmit(e) {
 // 카테고리 옵션 삽입
 async function addOptionsToSelectBox() {
   const categorys = await Api.get("/api/category");
+<<<<<<< HEAD
   categorys.forEach((item) => {
     // 객체 destructuring
     const { _id, category } = item;
+=======
+  categorys.forEach((category) => {
+    // 객체 destructuring
+    const { _id, title } = category;
+>>>>>>> feature
 
     categorySelectBox.insertAdjacentHTML(
       "beforeend",
       `
+<<<<<<< HEAD
       <option value=${_id}>${category}</option>`
+=======
+      <option value=${_id}>${title}</option>`
+>>>>>>> feature
     );
   });
 }

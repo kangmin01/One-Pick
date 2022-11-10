@@ -21,26 +21,140 @@
     </script>
   </head>
   <body>
-    <header>헤더</header>
+    <header id="header"></header>
     <main>
       <section class="product-management-header">
         <div class="product-management-header-title">상품 관리</div>
-        <div class="product-add-btn">
-          <a href="#">상품 추가하기</a>
+      </section>
+      
+      <section class="register-product">
+        <div class="box register-product-form" id="registerProductForm">
+          <form class="product-add">
+            <p>📚 판매할 제품을 등록하세요 📚</p>
+            <div class="field">
+              <label for="title">책 제목</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="titleInput"
+                  type="text"
+                  placeholder="ex> 미움받을 용기"
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            
+            <div class="field">
+              <label for="categorySelectBox">카테고리</label>
+              <div class="input-book-info">
+                <select id="categorySelectBox">
+                  <option value="">카테고리를 선택해 주세요</option>
+                  <!-- <option value="">소설</option>
+                  <option value="">시</option>
+                  <option value="">에세이</option>
+                  <option value="">경제</option>
+                  <option value="">개발</option>
+                  <option value="">원서</option>
+                  <option value="">취미</option> -->
+                </select>
+              </div>
+            </div>
+  
+            <div class="field">
+              <label for="author">작가</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="authorInput"
+                  type="text"
+                  placeholder="ex> 기시미 이치로, 고가 후미타케"
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label for="summaryInput">줄거리</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="summaryInput"
+                  type="text"
+                  placeholder="독자들로 하여금 책을 읽고 싶게 만드는 소개글을 작성해보세요"
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label for="publisherInput">출판사</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="publisherInput"
+                  type="text"
+                  placeholder="인플루엔셜"
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label for="publicationDateInput">발행일</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="publicationDateInput"
+                  type="text"
+                  placeholder="20220101"
+                  autocomplete="on"
+                />
+              </div>
+            </div>
+            <div class="field">
+              <label for="pageNumberInput">쪽수</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="pageNumberInput"
+                  type="number"
+                  placeholder="000"
+                  autocomplete="on"
+                />
+                <span>쪽</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="priceInput">가격</label>
+              <div class="input-book-info">
+                <input
+                  class="input"
+                  id="priceInput"
+                  type="number"
+                  placeholder="10000"
+                  id="price"
+                  autocomplete="on"
+                />
+                <span>원</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="img">책 표지</label>
+              <div>
+                <label>
+                  <input type="file" name="imgUrl" />
+                </label>
+              </div>
+              <!-- <div>
+                <label>
+                  <input type="file" id="img" />
+                </label>
+              </div> -->
+            </div>
+            <div>
+              <button class="new-book" id="summitButton">책 등록하기</button>
+            </div>
+          </form>
         </div>
       </section>
-      <section class="product-management-main">
-        <div class="product-type">
-          <p>책1</p>
-          <a href="#" class="product-update">수정</a>
-          <a href="#" class="product-delete">삭제</a>
-        </div>
-        <div class="product-type">
-          <p>책2</p>
-          <a href="#" class="product-update">수정</a>
-          <a href="#" class="product-delete">삭제</a>
-        </div>
-      </section>
+<<<<<<< HEAD
       
       <section class="register-product">
         <div class="box register-product-form" id="registerProductForm">
@@ -158,5 +272,9 @@
         </div>
       </div>
     </section> -->
+=======
+    </main>
+    <script type="module" src="admin-product.js" defer></script>
+>>>>>>> feature
   </body>
 </html>

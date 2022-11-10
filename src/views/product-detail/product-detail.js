@@ -1,21 +1,76 @@
-import * as Api from "/api.js";
+import * as Api from "../../api.js";
+import $ from "../../utils/dom.js";
+import store from "../../utils/store.js";
+import {
+  navigate,
+  getUrlParams,
+  addCommas,
+  addDate,
+} from "../../useful-functions.js";
 
-const title = document.querySelector("title");
-const addCartBtn = document.querySelector(".add-cart-btn");
-const buyNowBtn = document.querySelector(".buy-now-btn");
+const cart = store.getLocalStorage() || [];
 
-// 책 제목 받아와서 title 변경하기
+const webTitle = $("title");
+const bookImg = $("#book-img");
+const bookCategory = $(".book-category");
+const bookTitle = $(".book-title");
+const bookAuthor = $(".book-author");
+const bookPublisher = $(".book-publisher");
+const bookPublicationDate = $(".book-publicationDate");
+const bookPage = $(".book-page");
+const bookPrice = $(".book-price");
+const bookSummary = $(".book-summary");
 
-function handleAddCart() {
-  Swal.fire({
-    icon: "success",
-    title: "장바구니에 상품이 담겼습니다.",
+// checkUrlParams("id");
+
+getUrlParams();
+showAllElements();
+
+function showAllElements() {
+  //헤더 추가
+  productData();
+}
+
+const isDuplicate = (id) => {
+  if (store.getLocalStorage())
+    return store.getLocalStorage().some((data) => data.id === id);
+  return false;
+};
+
+async function productData() {
+  const id = getUrlParams();
+  const product = await Api.get(`/api/products/${id}`);
+  const {
+    title,
+    imgUrl,
+    price,
+    category,
+    author,
+    publisher,
+    publicationDate,
+    pageNumber,
+    summary,
+  } = product;
+
+  webTitle.innerText = title;
+  bookImg.src = imgUrl;
+  bookCategory.innerText = category;
+  bookTitle.innerText = title;
+  bookAuthor.innerText = author;
+  bookPublisher.innerText = publisher;
+  bookPublicationDate.innerText = `${addDate(publicationDate)}`;
+  bookPage.innerText = `${pageNumber} pg`;
+  bookSummary.innerText = summary;
+  bookPrice.innerText = `${addCommas(price)} 원`;
+
+  $(".add-cart-btn").addEventListener("click", navigate(`/cart`));
+  $(".add-cart-btn").addEventListener("click", () => {
+    if (isDuplicate(id)) return alert("이미 장바구니에 있습니다❗️");
+    cart.push({ id: id });
+    store.setLocalStorage(cart);
   });
 }
 
-function handleBuyNow() {
-  // 회원이 책을 구매하는 정보를 장바구니 페이지에 전달???
-}
-
-addCartBtn.addEventListener("click", handleAddCart);
-addCartBtn.addEventListener("click", handleBuyNow);
+$(".buy-now-btn").addEventListener("click", () => {
+  console.log("dsaf");
+});

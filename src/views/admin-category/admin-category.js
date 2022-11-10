@@ -1,6 +1,5 @@
-const categoryAdd = document.querySelector(".category-add");
-const categoryUpdate = document.querySelectorAll(".category-update");
-const categoryDelete = document.querySelectorAll(".category-delete");
+import * as Api from "../api.js";
+import $ from "../utils/dom.js";
 
 // 요소(element), input 혹은 상수
 const titleInput = $("#titleInput");
@@ -27,8 +26,7 @@ async function handleSubmit(e) {
   }
 
   try {
-    const data = { category: title };
-    console.log(data);
+    const data = { title };
     await Api.post("/api/category", data);
 
     alert(`정상적으로 ${title} 카테고리가 등록되었습니다.`);
@@ -36,7 +34,7 @@ async function handleSubmit(e) {
     // 폼 초기화
     registerCategoryForm.reset();
   } catch (err) {
-    console.log(err.stack);
+    console.error(err.stack);
     alert(`문제가 발생하였습니다. 확인 후 다시 시도해 주세요: ${err.message}`);
   }
 }
