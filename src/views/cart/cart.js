@@ -60,7 +60,7 @@ const renderBooks = (bookList) => {
     let totalPrice = sumBookPrice(Number(book.price));
     window.localStorage.setItem("totalPrice", totalPrice);
     $("#productsTotal").innerHTML = addCommas(totalPrice) + "원";
-    $("#orderTotal").innerHTML = addCommas(totalPrice + 3000) + "원";
+    $("#orderTotal").innerHTML = addCommas(totalPrice) + "원";
   });
 };
 
