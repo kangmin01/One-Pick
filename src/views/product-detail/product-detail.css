@@ -9,9 +9,9 @@ main {
 }
 
 .product-detail {
-  width: 100%;
+  width: 1200px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   /* padding-left: 15rem; */
 }
 
@@ -19,12 +19,17 @@ main {
 .book-info {
   width: 25rem;
   border: 0.1rem solid black;
-  margin: 4rem 2rem;
+  /* margin: 4rem 2rem; */
+  margin: 4rem 2rem 4rem 0;
+}
+
+.book-info {
+  border: none;
 }
 
 .book-info {
   padding: 1rem 2.4rem;
-  /* width: 40rem; */
+  width: 700px;
 }
 
 .book-info h1,
@@ -43,11 +48,14 @@ h1 {
 }
 
 .book-summary {
-  line-height: 1.8rem;
+  line-height: 2.5rem;
+  width: 1200px;
+  font-size: 1.3rem;
 }
 
 .payment-btns {
   display: flex;
+  flex-direction: column;
 }
 
 .payment-btns a {
@@ -58,7 +66,7 @@ h1 {
   border-radius: 0.6rem;
   padding: 1.6rem 4rem;
   text-align: center;
-  margin: 1rem;
+  margin: 1rem 0;
 }
 
 .payment-btns a {
