@@ -14,12 +14,9 @@ showAllProductItems();
 
 async function showAllProductItems() {
   const products = await Api.get("/api/products");
-  console.log(products);
   const categoryList = await Api.get("/api/category");
-  console.log(products);
   products.forEach((product) => {
     const { _id, imgUrl, category } = product;
-    console.log(category);
 
     $(".book-list").insertAdjacentHTML(
       "beforeend",
@@ -36,7 +33,6 @@ async function showAllProductItems() {
 
   categoryList.forEach((categoryListItem) => {
     const { category } = categoryListItem;
-    console.log("2", category);
     $(".category-filter-form").insertAdjacentHTML(
       "beforeend",
       `
@@ -60,6 +56,7 @@ async function showAllProductItems() {
   for (let i = 0; i < categoryFilters.length; i++) {
     categoryFilters[i].addEventListener("click", (e) => {
       const selectedCategory = document.getElementsByClassName(e.target.id);
+      console.log(selectedCategory);
       for (let i = 0; i < selectedCategory.length; i++) {
         selectedCategory[i].classList.toggle(non_checked);
       }
